@@ -1,0 +1,106 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%; /* Makes the container responsive */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #2575fc;
+    outline: none;
+    margin: auto;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin: 10px; /* Added margin for spacing */
+}
+
+/* Color Variants for Buttons */
+button#generate {
+    background: #28a745; /* Green color */
+}
+
+button#download {
+    background: #007bff; /* Blue color */
+    display: none;
+    margin: auto;
+}
+
+button#generate:hover {
+    background: #218838; /* Darker green on hover */
+}
+
+button#download:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+.qr-code {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 2px solid #2575fc;
+    border-radius: 12px;
+    padding: 10px;
+    background: white;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input[type="text"] {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .qr-code {
+        margin-top: 15px;
+    }
+}
