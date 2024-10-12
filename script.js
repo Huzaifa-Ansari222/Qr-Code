@@ -1,31 +1,36 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Hide QR code container initially
-    $("#qrCode").hide();
+    const qrCodeContainer = document.getElementById("qrCode");
+    qrCodeContainer.style.display = 'none';
 
-    $("#generate").click(function() {
-        const qrInput = $("#qrInput").val();
+    const generateButton = document.getElementById("generate");
+    const downloadButton = document.getElementById("download");
+    const qrInput = document.getElementById("qrInput");
+
+    generateButton.addEventListener('click', () => {
+        const qrInputValue = qrInput.value.trim();
         
         // Clear previous QR code
-        $("#qrCode").empty();
+        qrCodeContainer.innerHTML = '';
 
-        if (qrInput) {
-            // Generate QR code
+        if (qrInputValue) {
+            // Generate QR code using jQuery.qrcode (as jQuery version)
             $("#qrCode").qrcode({
                 width: 256,
                 height: 256,
-                text: qrInput
+                text: qrInputValue
             });
 
             // Show QR code div and download button
-            $("#qrCode").show();
-            $("#download").show();
+            qrCodeContainer.style.display = 'block';
+            downloadButton.style.display = 'block';
         } else {
             alert("Please enter a URL or text.");
         }
     });
 
     // Download QR code as image
-    $("#download").click(function() {
+    downloadButton.addEventListener('click', () => {
         const canvas = document.querySelector("canvas");
         if (canvas) {
             const link = document.createElement("a");
